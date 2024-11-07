@@ -167,8 +167,8 @@ class SignUpScreen extends StatelessWidget {
 }
 
 //변경되는지 확인
-class sangwon extends StatelessWidget {
-  const sangwon({super.key});
+class Sangwon extends StatelessWidget {
+  const Sangwon({super.key});
 
   @override
   Widget build(BuildContext context) {
