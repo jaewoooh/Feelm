@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
@@ -44,13 +44,16 @@ class LoginScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 hintText: 'username',
-                hintStyle: const TextStyle(color: Color(0xFF666666)), // 텍스트 색상 666666
+                hintStyle:
+                    const TextStyle(color: Color(0xFF666666)), // 텍스트 색상 666666
                 filled: true,
                 fillColor: const Color(0xFFEFEFEF), // 입력 필드 배경색 EFEFEF
-                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: Color(0xFF333631)), // 테두리 색상 333631
+                  borderSide: const BorderSide(
+                      color: Color(0xFF333631)), // 테두리 색상 333631
                 ),
               ),
             ),
@@ -61,17 +64,21 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 hintText: 'Password',
-                hintStyle: const TextStyle(color: Color(0xFF666666)), // 텍스트 색상 666666
+                hintStyle:
+                    const TextStyle(color: Color(0xFF666666)), // 텍스트 색상 666666
                 filled: true,
                 fillColor: const Color(0xFFEFEFEF), // 입력 필드 배경색 EFEFEF
-                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: Color(0xFF333631)), // 테두리 색상 333631
+                  borderSide: const BorderSide(
+                      color: Color(0xFF333631)), // 테두리 색상 333631
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: Color(0xFF323232), width: 2), // 포커스 테두리 색상 323232
+                  borderSide: const BorderSide(
+                      color: Color(0xFF323232), width: 2), // 포커스 테두리 색상 323232
                 ),
               ),
             ),
@@ -82,7 +89,8 @@ class LoginScreen extends StatelessWidget {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF000000), // 버튼 배경색 000000
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -90,7 +98,8 @@ class LoginScreen extends StatelessWidget {
               ),
               child: const Text(
                 'LogIn',
-                style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16), // 텍스트 색상 FFFFFF
+                style: TextStyle(
+                    color: Color(0xFFFFFFFF), fontSize: 16), // 텍스트 색상 FFFFFF
               ),
             ),
             const SizedBox(height: 20),
@@ -109,11 +118,14 @@ class LoginScreen extends StatelessWidget {
             RichText(
               text: TextSpan(
                 text: "Don't have an account, ",
-                style: const TextStyle(color: Color(0xFF666666), fontSize: 14), // 텍스트 색상 666666
+                style: const TextStyle(
+                    color: Color(0xFF666666), fontSize: 14), // 텍스트 색상 666666
                 children: [
                   TextSpan(
                     text: 'Sign Up',
-                    style: const TextStyle(color: Color(0xFF000000), fontWeight: FontWeight.bold), // 텍스트 색상 000000
+                    style: const TextStyle(
+                        color: Color(0xFF000000),
+                        fontWeight: FontWeight.bold), // 텍스트 색상 000000
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         // 회원가입 페이지로 이동
@@ -154,36 +166,15 @@ class SignUpScreen extends StatelessWidget {
   }
 }
 
+//변경되는지 확인
+class Sangwon extends StatelessWidget {
+  const Sangwon({super.key});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold();
+  }
+}
 
 //--------------------------------------------------------------------------------------------
 // //앱의 root widget 클래스
