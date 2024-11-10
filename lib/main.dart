@@ -1,4 +1,6 @@
 //import 'package:flutter/cupertino.dart';
+
+import 'package:feelm/View/mainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
@@ -24,6 +26,10 @@ class MyApp extends StatelessWidget {
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
+  static final TextEditingController _userName =
+      TextEditingController(); // _붙인거 private
+  static final TextEditingController _password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -42,6 +48,7 @@ class LoginScreen extends StatelessWidget {
 
             // 사용자 이름 입력 필드
             TextField(
+              controller: _userName,
               decoration: InputDecoration(
                 hintText: 'username',
                 hintStyle:
@@ -61,6 +68,7 @@ class LoginScreen extends StatelessWidget {
 
             // 비밀번호 입력 필드
             TextField(
+              controller: _password,
               obscureText: true,
               decoration: InputDecoration(
                 hintText: 'Password',
@@ -86,7 +94,43 @@ class LoginScreen extends StatelessWidget {
 
             // 로그인 버튼
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_userName.text == "a" && _password.text == "1") {
+                  // 새로운 페이지 이동
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainScreen()),
+                  );
+                  _userName.text = '';
+                  _password.text = '';
+                } else {
+                  //아이디와 비밀번호가 올바르지 않을때 Alert
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          title: const Text(
+                            "오류",
+                            textAlign: TextAlign.center,
+                          ),
+                          content: const Text("아이디 또는 비밀번호가 올바르지 않습니다."),
+                          actionsAlignment: MainAxisAlignment.center,
+                          actions: [
+                            ElevatedButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              iconAlignment: IconAlignment.end,
+                              child: const Text(
+                                "확인",
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                          ],
+                        );
+                      });
+                }
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF000000), // 버튼 배경색 000000
                 padding:
@@ -165,17 +209,6 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
-
-//변경되는지 확인
-class Sangwon extends StatelessWidget {
-  const Sangwon({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
-  }
-}
-
 //--------------------------------------------------------------------------------------------
 // //앱의 root widget 클래스
 // //root widget 클래스는 두개의 옵션 중 하나를 return 해야한다. (material(구글) / cupertino(애플))
