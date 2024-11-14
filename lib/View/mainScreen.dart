@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:feelm/View/calendarScreen.dart';
-import 'package:feelm/View/MovieScreen.dart';
-import 'package:feelm/View/MyPageScreen.dart';
+//import 'package:feelm/View/MovieScreen.dart';
+//import 'package:feelm/View/MyPageScreen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -36,8 +36,8 @@ class _MainScreenState extends State<MainScreen>
 
   List<Widget> screens = [
     const Calendarscreen(),
-    const Moviescreen(),
-    const Mypagescreen(),
+    //const Moviescreen(),
+    //const Mypagescreen(),
   ];
 
   @override
