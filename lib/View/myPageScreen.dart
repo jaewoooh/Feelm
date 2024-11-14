@@ -17,6 +17,7 @@ class _MypagescreenState extends State<Mypagescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF9ACBFF),
+      // 상단바 
       appBar: AppBar(
         backgroundColor: const Color(0xFF9ACBFF),
         elevation: 0,
@@ -53,7 +54,7 @@ class _MypagescreenState extends State<Mypagescreen> {
           Spacer(),
         ],
       ),
-     
+     // 하단
       body: Container(
         color: const Color(0xFFE5ECF5),
         child: Padding(
@@ -72,9 +73,9 @@ class _MypagescreenState extends State<Mypagescreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20), // 이미지와 프로필 섹션 사이 간격
+              const SizedBox(height: 20), 
 
-              // 프로필 섹션
+              // 프로필
               Container(
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
@@ -108,6 +109,7 @@ class _MypagescreenState extends State<Mypagescreen> {
                   ],
                 ),
               ),
+              // 하단 : 즐겨찾기
               const SizedBox(height: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +138,7 @@ class _MypagescreenState extends State<Mypagescreen> {
               ),
               */
               const SizedBox(height: 10),
-              // 즐겨찾기 영화 목록에 일단 뭐라도 적어뒀습니다...
+              // 즐겨찾기 영화 목록, 나중에 DB에서 정보를 가져와야함
               Expanded(
                 child: ListView(
                   children: [
@@ -165,7 +167,8 @@ class _MypagescreenState extends State<Mypagescreen> {
       ),
     );
   }
-
+  
+// 나중에 영화카드 생성할 때 사용해야함, 여기에 영화 정보 합칠 예정, 이미지가 없을 경우 기본 이미지 출력하도록 함
  Widget _buildFavoriteMovieCard(String title, String imagePath, double rating, String genre, int year, int minutes) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
