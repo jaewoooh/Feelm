@@ -32,7 +32,7 @@ class _MypagescreenState extends State<Mypagescreen> {
               },
             ),
           ),
-          const SizedBox(width: 120), // 간격 조정
+          const SizedBox(width: 120), 
           MouseRegion(
             onEnter: (_) => setState(() => calendarImage = 'assets/calendarTouch.png'),
             onExit: (_) => setState(() => calendarImage = 'assets/calendar.png'),
@@ -43,7 +43,7 @@ class _MypagescreenState extends State<Mypagescreen> {
               },
             ),
           ),
-          const SizedBox(width: 120), // 간격 조정
+          const SizedBox(width: 120), 
           IconButton(
             icon: Image.asset('assets/myPage.png'),
             onPressed: () {
@@ -52,7 +52,6 @@ class _MypagescreenState extends State<Mypagescreen> {
           ),
           Spacer(),
         ],
-
       ),
       body: Container(
         color: const Color(0xFFE5ECF5),
@@ -61,6 +60,16 @@ class _MypagescreenState extends State<Mypagescreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // MyProfile 이미지 추가
+              Center(
+                child: Image.asset(
+                  'assets/Myprofile.png', // MyProfile 이미지 경로
+                  width: 138, // 이미지 너비 조정
+                  height: 41, // 이미지 높이 조정
+                ),
+              ),
+              const SizedBox(height: 20), // 이미지와 프로필 섹션 사이 간격
+
               // 프로필 섹션
               Container(
                 padding: const EdgeInsets.all(16.0),
@@ -79,7 +88,7 @@ class _MypagescreenState extends State<Mypagescreen> {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('assets/profile.png'), // 프로필 이미지 경로
+                      backgroundImage: AssetImage('assets/userprofile.png'), // 프로필 이미지 경로 변경
                     ),
                     const SizedBox(width: 16),
                     Column(
