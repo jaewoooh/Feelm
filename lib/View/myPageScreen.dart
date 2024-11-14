@@ -1,6 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'movieScreen.dart'; 
+import 'calendarScreen.dart';
+
 
 class Mypagescreen extends StatefulWidget {
   const Mypagescreen({super.key});
@@ -29,7 +32,11 @@ class _MypagescreenState extends State<Mypagescreen> {
             child: IconButton(
               icon: Image.asset(movieImage),
               onPressed: () {
-                // 누르면 다른 화면으로 넘어가도록 하기
+                // 누르면 다른 화면으로 넘어가도록 하기, movieScreen.dart로 이동
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Moviescreen()),
+                );
               },
             ),
           ),
@@ -40,7 +47,11 @@ class _MypagescreenState extends State<Mypagescreen> {
             child: IconButton(
               icon: Image.asset(calendarImage),
               onPressed: () {
-                // 누르면 다른 화면으로 넘어가도록 하기
+                 //누르면 다른 화면으로 넘어가도록 하기, calendarScreen.dart로 이동
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Calendarscreen()),
+                  );
               },
             ),
           ),
@@ -167,7 +178,7 @@ class _MypagescreenState extends State<Mypagescreen> {
       ),
     );
   }
-  
+
 // 나중에 영화카드 생성할 때 사용해야함, 여기에 영화 정보 합칠 예정, 이미지가 없을 경우 기본 이미지 출력하도록 함
  Widget _buildFavoriteMovieCard(String title, String imagePath, double rating, String genre, int year, int minutes) {
     return Card(
