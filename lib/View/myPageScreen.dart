@@ -28,31 +28,32 @@ class _MypagescreenState extends State<Mypagescreen> {
             child: IconButton(
               icon: Image.asset(movieImage),
               onPressed: () {
-                // 여기에 동작 추가
+                // 누르면 다른 화면으로 넘어가도록 하기
               },
             ),
           ),
-          const SizedBox(width: 120), 
+          const SizedBox(width: 120),
           MouseRegion(
             onEnter: (_) => setState(() => calendarImage = 'assets/calendarTouch.png'),
             onExit: (_) => setState(() => calendarImage = 'assets/calendar.png'),
             child: IconButton(
               icon: Image.asset(calendarImage),
               onPressed: () {
-                // 여기에 동작 추가
+                // 누르면 다른 화면으로 넘어가도록 하기
               },
             ),
           ),
-          const SizedBox(width: 120), 
+          const SizedBox(width: 120),
           IconButton(
             icon: Image.asset('assets/myPage.png'),
             onPressed: () {
-              // 여기에 동작 추가
+              // 현재는 myPage이기 때문에 따로 동작은 안 넣음
             },
           ),
           Spacer(),
         ],
       ),
+     
       body: Container(
         color: const Color(0xFFE5ECF5),
         child: Padding(
@@ -60,12 +61,15 @@ class _MypagescreenState extends State<Mypagescreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // MyProfile 이미지 추가
-              Center(
-                child: Image.asset(
-                  'assets/Myprofile.png', // MyProfile 이미지 경로
-                  width: 138, // 이미지 너비 조정
-                  height: 41, // 이미지 높이 조정
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16.0), // 흰색 박스 시작 위치에 맞춤
+                  child: Image.asset(
+                    'assets/myprofile.png',
+                    width: 138, // 일단 이 넓이
+                    height: 41, 
+                  ),
                 ),
               ),
               const SizedBox(height: 20), // 이미지와 프로필 섹션 사이 간격
@@ -88,29 +92,51 @@ class _MypagescreenState extends State<Mypagescreen> {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('assets/userprofile.png'), // 프로필 이미지 경로 변경
+                      backgroundImage: AssetImage('assets/userprofile.png'), // 일단 피그마 이미지, 나중에는 사용자 설정 이미지를 가져올 수 있도록 하기...
                     ),
                     const SizedBox(width: 16),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: const [ // 여기도 나중에는 사용자 정보를 가져와야함
                         Text(
-                          '안희영',
+                          '냠냠냠',
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
-                        Text('gmlud8009@gmail.com'),
+                        Text('yummy@gmail.com'),
                       ],
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
-              const Text(
-                '즐겨 찾기',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '즐겨 찾기',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF615F7B), 
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Container(
+                    height: 2,
+                    width: 80, 
+                    color: Color(0xFF615F7B), 
+                  ),
+                ],
+              ),// 이미지를 넣으니 너무 깨져서 글씨로 적었습니다
+              /*
+              Image.asset(
+                'assets/Favorites.png',
+                width: 200, 
+                height: 41, 
               ),
+              */
               const SizedBox(height: 10),
-              // 즐겨찾기 영화 목록
+              // 즐겨찾기 영화 목록에 일단 뭐라도 적어뒀습니다...
               Expanded(
                 child: ListView(
                   children: [
@@ -140,7 +166,7 @@ class _MypagescreenState extends State<Mypagescreen> {
     );
   }
 
-  Widget _buildFavoriteMovieCard(String title, String imagePath, double rating, String genre, int year, int minutes) {
+ Widget _buildFavoriteMovieCard(String title, String imagePath, double rating, String genre, int year, int minutes) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: Padding(
@@ -150,8 +176,16 @@ class _MypagescreenState extends State<Mypagescreen> {
             Image.asset(
               imagePath,
               width: 80,
-              height: 80,
+              height: 100,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset(
+                  'assets/posterEx.png', // 일단 기본이미지
+                  width: 80,
+                  height: 100,
+                  fit: BoxFit.cover,
+                );
+              },
             ),
             const SizedBox(width: 16),
             Expanded(
