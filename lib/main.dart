@@ -3,6 +3,9 @@
 import 'package:feelm/View/mainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:feelm/View/myTableCalendar.dart'; // MyTableCalendar 파일을 import
+import 'package:feelm/View/movieScreen.dart'; // Moviescreen 파일을 import
+import 'package:feelm/View/myPageScreen.dart'; // Mypagescreen 파일을 import
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Color(0xFFDCD1B5), // 배경색 DCD1B5
-        body: LoginScreen(),
-      ),
+      home: const Mypagescreen(), // Mypagescreen을 초기 화면으로 설정
     );
   }
 }
@@ -191,7 +191,6 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
 // 회원가입 화면
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -349,3 +348,4 @@ class SignUpScreen extends StatelessWidget {
 //     );
 //   }
 // }
+
